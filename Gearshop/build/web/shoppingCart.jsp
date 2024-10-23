@@ -33,7 +33,7 @@
                 }
             }
             .content-scroll-block {
-                width: 500px; /* Set the width of the block */
+                width: 385px; /* Set the width of the block */
                 height: 300px; /* Set the height of the block */
                 overflow-y: scroll; /* Allow vertical scrolling if content overflows */
             }

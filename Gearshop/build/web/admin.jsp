@@ -44,8 +44,8 @@ Author     : thinh
             body {
                 margin: 0;
                 padding: 0;
-                background-image: url('https://i.pinimg.com/originals/c1/fc/9d/c1fc9d7f6ae08d56f2b84e81799790a5.gif');
-                background-size: cover; /* Để hình nền phủ toàn bộ kích thước của body */
+                background-color:  #cccccc;
+                background-size: cover; 
 
             }
         </style>
@@ -56,14 +56,14 @@ Author     : thinh
         <!-- Navbar --------------------------------------------------------------------------->
         <nav class="navbar navbar-expand-lg navbar-nav bg-body-tertiary sticky-top" >
             <!-- Container wrapper -->
-            <div class="container-fluid" style="background-color:darkslategrey;">
+            <div class="container-fluid" style="background-color: #147076">
                 <!-- Toggle button -->
 
 
                 <!-- Collapsible wrapper -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Navbar brand -->
-                    <a class="navbar-brand mt-2 mt-lg-0" href="adminHomePage">
+                    <a class="navbar-brand mt-2 mt-lg-0" href="managerProduct">
                         <img
                             src="img_icon/Neon Blue and Black Gamer Badge Logo.png"
                             height="60"
@@ -71,30 +71,11 @@ Author     : thinh
                             loading="lazy"
                             />
                     </a>
-                    <!-- Left links -->            
-                    <form action="productList">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <div class="btn-group">
-                                    <button
-                                        type="button"
-                                        class="btn btn-light dropdown-toggle"
-                                        data-mdb-dropdown-init
-                                        data-mdb-ripple-init
-                                        aria-expanded="false">
-                                        Right-aligned menu
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="managerProduct">Product manager</a></li>
-                                        <li><a class="dropdown-item" href="managerAccount" >Client manager</a></li>
-                                        <li><a class="dropdown-item" href="manaCategory" >Brand manager</a></li>
-                                        <li><a class="dropdown-item" href="manaType" >Type manager</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </form>
-                    <!-- Left links -->
+                    <div class="d-flex ">
+                                        <a class="dropdown-item"  style="font-size: 16px; font-weight: bold " href="managerProduct">Product manager</a>
+                                         <a class="dropdown-item"  style="font-size: 16px; font-weight: bold" href="managerAccount" >User manager</a>
+                                        <a class="dropdown-item"  style="font-size: 16px; font-weight: bold " href="manaCategory" >Brand manager</a>
+                        </div>
                 </div>
 
                 <!-- Right elements -->
@@ -147,15 +128,7 @@ Author     : thinh
             </c:if>
             <c:if test="${requestScope.typeLists!=null}">
                 <jsp:include page="manaType.jsp"/>
-            </c:if>
-            <c:if test="${requestScope.orderListNeedConfirm!=null}">
-                <jsp:include page="manaOrdering.jsp"/>
-            </c:if>
-            <c:if test="${requestScope.histotyTransaction!=null}">
-                <jsp:include page="histotyTransaction.jsp"/>
-            </c:if>
-            
-
+            </c:if>    
         </div>
 
 

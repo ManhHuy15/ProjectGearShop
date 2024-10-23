@@ -39,7 +39,7 @@
             .sidenav a {
                 padding: 8px 8px -9px 32px;
                 text-decoration: none;
-                font-size: 25px;
+                font-size: 18px;
                 color: #818181;
                 display: block;
                 transition: 0.3s;
@@ -105,7 +105,7 @@
 
             .pagination a.active {
                 background-color: #4CAF50;
-                color: white;
+                color: white  !important; 
             }
 
             .pagination a:hover:not(.active) {
@@ -117,6 +117,7 @@
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     </head>
     <body class='body'>
         <c:set var="cid" value="${requestScope.id}"/>
@@ -126,22 +127,19 @@
         <c:set var="type_raw" value="${requestScope.Type}"/>
         <c:set var="type_raw_id" value="${requestScope.type_id_raw}"/>
         <form id="myForm" action="managerProduct" onsubmit="submitForm(event)">
-            <div id="mySidenav" class="sidenav" >    
+            <div id="mySidenav" class="sidenav" style="padding-right: 10px; padding-left: 10px" >    
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <p class="a">Tìm kiếm</p>
+                <h3 class="a">Tìm kiếm</h3>
                 <div class="input-group mb-3">
-                    <span class="input-group-text " style="color: white">Name</span>
-                    <input name="name" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input name="name" type="text" placeholder="Name product" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                 </div>
                 <p class="a">Mức giá trên</p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text " style="color: white">Đồng</span>
-                    <input name="price_from" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input name="price_from" type="text"  placeholder="VNĐ" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                 </div>
                 <p class="a">Mức giá dưới</p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text " style="color: white">Đồng</span>
-                    <input name="price_To" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input name="price_To" type="text"  placeholder="VNĐ" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                 </div>
                 <p class="a">Thương hiệu sản phẩm</p>
                 <select name="cid"  class="form-select a" aria-label="Default select example">
@@ -157,17 +155,13 @@
                     <input class="form-check-input " name="type_raw" type="checkbox" value ="1" id="option1"  onclick="handleCheckboxClick('option1')">
                     <label class="form-check-label " for="option1">Sắp xếp tăng dần theo giá</label>
                 </div>
-
                 <!-- Checked checkbox -->
                 <div class="form-check">
                     <input class="form-check-input " name="type_raw" type="checkbox"  value ="2" id="option2" onclick="handleCheckboxClick('option2')">
                     <label class="form-check-label " for="option2">sắp xếp giảm dần theo giá</label>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Tìm</button>
-
-                <div class="form-check">
-                    <a href="addProduct" target="target">Add product</a> 
-                </div>
+                <button type="submit" class="btn btn-primary btn-sm btn-block mt-4" style="font-size: 25px">Tìm</button>
+                <button type="submit" class="btn btn-success btn-sm btn-block"> <a href="addProduct" target="target" style="color: white">Add product</a> </button>
             </div> 
 
         </form>
@@ -239,11 +233,11 @@
                     <c:if test="${requestScope.product != null}">
                         <div class="pagination">
                             <c:set var="page" value="${requestScope.page}"/>
-                            <a style="color: white;" href="managerProduct?page=${1}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&laquo;</a>
+                            <a style="color: black;" href="managerProduct?page=${1}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&laquo;</a>
                             <c:forEach begin="${1}" end="${requestScope.num}" var="i">
-                                <a style="color: white;" class="${i==page?"active":""}" href="managerProduct?page=${i}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">${i}</a>
+                                <a style="color: black;" class="${i==page?"active":""}" href="managerProduct?page=${i}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">${i}</a>
                             </c:forEach> 
-                            <a style="color: white;" href="managerProduct?page=${num}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&raquo;</a>
+                            <a style="color: black;" href="managerProduct?page=${num}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&raquo;</a>
                         </div>
                     </c:if>
 
@@ -307,11 +301,11 @@
                     <c:if test="${requestScope.product != null}">
                         <div class="pagination">
                             <c:set var="page" value="${requestScope.page}"/>
-                            <a style="color: white;" href="managerProduct?page=${1}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&laquo;</a>
+                            <a style="color: black;" href="managerProduct?page=${1}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&laquo;</a>
                             <c:forEach begin="${1}" end="${requestScope.num}" var="i">
-                                <a style="color: white;"  class="${i==page?"active":""}" href="managerProduct?page=${i}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">${i}</a>
+                                <a style="color: black;"  class="${i==page?"active":""}" href="managerProduct?page=${i}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">${i}</a>
                             </c:forEach> 
-                            <a style="color: white;"  href="managerProduct?page=${num}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&raquo;</a>
+                            <a style="color: black;"  href="managerProduct?page=${num}&cid=${id}&name=${name}&price_from=${priceFrom}&price_To=${priceTo}&type_raw=${Type}&type_id=${type_id_raw}">&raquo;</a>
                         </div>
                     </c:if>
 

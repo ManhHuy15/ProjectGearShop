@@ -126,22 +126,19 @@
         <c:set var="type_raw" value="${requestScope.Type}"/>
         <c:set var="type_raw_id" value="${requestScope.type_id_raw}"/>
         <form id="myForm" action="productList" onsubmit="submitForm(event)">
-            <div id="mySidenav" class="sidenav" >    
+            <div id="mySidenav" class="sidenav"  style="padding-right: 10px; padding-left: 10px">    
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <p class="a">Tìm kiếm</p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text " style="color: white">Name</span>
-                    <input name="name" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input name="name" type="text" placeholder="Name product" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                 </div>
                 <p class="a">Mức giá trên</p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text " style="color: white">Đồng</span>
-                    <input name="price_from" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input name="price_from" type="text" placeholder="VNĐ" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                 </div>
                 <p class="a">Mức giá dưới</p>
                 <div class="input-group mb-3">
-                    <span class="input-group-text " style="color: white">Đồng</span>
-                    <input name="price_To" type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                    <input name="price_To" type="text"   placeholder="VNĐ" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                 </div>
                 <p class="a">Thương hiệu sản phẩm</p>
                 <select name="cid"  class="form-select a" aria-label="Default select example">

@@ -207,24 +207,24 @@
         <div class=""><a href="home"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
                 <path fill="#9fa8da" d="M45,45V25.9c0-1.8-0.8-3.6-2.3-4.7L29.1,10.5c-0.4-0.3-0.9-0.3-1.2,0L14.3,21.2c-1.4,1.1-2.3,2.9-2.3,4.7V45	c0,0.6,0.4,1,1,1h31C44.6,46,45,45.6,45,45z"></path><path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M13.4,13.8l-3.6,2.9c-1.4,1.1-2.3,2.9-2.3,4.7v18.1c0,1.1,0.9,2,2,2h20"></path><path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M35,41.5h3.5c1.1,0,2-0.9,2-2V21.4c0-1.8-0.8-3.6-2.3-4.7L24.6,6c-0.4-0.3-0.9-0.3-1.2,0l-4.6,3.6"></path><path fill="none" stroke="#18193f" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3" d="M18.5,35.7v-8.2c0-0.6,0.4-1,1-1h8.9c0.6,0,1,0.4,1,1v14"></path>
                 </svg></a></div>
-        <div class="container" id="authContainer">       
+        <div class="container" id="authContainer" >       
             <c:if test="${requestScope.wrong!=null}">
-                <div class="alert alert-warning h-100">
+                <div class="alert alert-warning h-100" style="color: red">
                     <strong>Warning!</strong> ${requestScope.wrong}
                 </div>
             </c:if>
             <c:if test="${requestScope.incorrect!=null}">
-                <div class="alert alert-warning h-100">
+                <div class="alert alert-warning h-100" style="color: red">
                     <strong>Warning!</strong> ${requestScope.incorrect}
                 </div>
             </c:if>
             <c:if test="${requestScope.done!=null}">
-                <div class="alert alert-success h-100">
+                <div class="alert alert-success h-100" style="color: red">
                     <strong>done!</strong> ${requestScope.done}
                 </div>
             </c:if>
             <c:if test="${requestScope.mess2!=null}">
-                <div class="alert alert-warning h-100">
+                <div class="alert alert-warning h-100" style="color: red">
                     <strong>warning!</strong> ${requestScope.mess2}
                 </div>
             </c:if>

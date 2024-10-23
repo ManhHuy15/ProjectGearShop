@@ -81,7 +81,8 @@ public class login extends HttpServlet {
         } else {
             if (u.getRole() == 1) {
                 session.setAttribute("user", u);
-                response.sendRedirect("admin.jsp");
+//                response.sendRedirect("admin.jsp");
+                response.sendRedirect("managerProduct");
             } else {
                 session.setAttribute("user", u);
                 Order order = new Order();
