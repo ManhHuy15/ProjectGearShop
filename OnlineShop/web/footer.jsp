@@ -71,11 +71,11 @@
                         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                             <!-- Content -->
                             <h6 class="text-uppercase fw-bold mb-4">
-                                <i class="fas fa-gem me-3"></i>Company name
+                                <i class="fas fa-gem me-3"></i>Impact Gear Vn
                             </h6>
                             <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit.
+                                Impact Gear VN is one of the professional gaming gear shops to appear in Vietnam. We constantly strive to learn
+                                and improve both our technical expertise and our approach to better serve our customers.
                             </p>
                         </div>
                         <!-- Grid column -->
@@ -87,16 +87,16 @@
                                 Products
                             </h6>
                             <p>
-                                <a href="#!" class="text-reset">Angular</a>
+                                <a href="#!" class="text-reset">Logitech</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">React</a>
+                                <a href="#!" class="text-reset">Fuhlen</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Vue</a>
+                                <a href="#!" class="text-reset">Razor</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Laravel</a>
+                                <a href="#!" class="text-reset">HyperX</a>
                             </p>
                         </div>
                         <!-- Grid column -->
