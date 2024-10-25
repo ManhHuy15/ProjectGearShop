@@ -94,7 +94,6 @@ public class updateUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("12345678");
         HttpSession session = request.getSession();
         String id_raw = request.getParameter("id");
         String user_name = request.getParameter("username");
@@ -115,24 +114,22 @@ public class updateUser extends HttpServlet {
                  System.out.println("1234");
                 imagePart.write(filePath);
                 img = UPLOAD_DIR + "/" + fileName;
-                String name_raw = request.getParameter("name");
-                String email_raw = request.getParameter("email");
-                String phone_raw = request.getParameter("phone");
-                String address_raw = request.getParameter("address");
-
-                UserDao userDao = new UserDao();
-                System.out.println("12345");
-                User user = new User(Integer.parseInt(id_raw), name_raw, email_raw, phone_raw, user_name, password, 0, img, address_raw);
-                session.removeAttribute("user");
-                session.setAttribute("user", user);
-                request.setAttribute("user", user);
-                userDao.updateUser(user);
-                System.out.println("123");
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new ServletException("File upload failed!", e);
             }
         }
+                        String name_raw = request.getParameter("name");
+                String email_raw = request.getParameter("email");
+                String phone_raw = request.getParameter("phone");
+                String address_raw = request.getParameter("address");
+
+                UserDao userDao = new UserDao();
+                User user = new User(Integer.parseInt(id_raw), name_raw, email_raw, phone_raw, user_name, password, 0, img, address_raw);
+                session.removeAttribute("user");
+                session.setAttribute("user", user);
+                request.setAttribute("user", user);
+                userDao.updateUser(user);
 
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
