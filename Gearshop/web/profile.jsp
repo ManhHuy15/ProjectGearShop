@@ -52,7 +52,7 @@
         </style>
     </head>
     <body>
-        <form action="updateUser" method="post">
+        <form action="updateUser" method="POST" enctype="multipart/form-data">
             <section class="vh-150" style="background-color: #f4f5f7;">
                 <c:set var="po" value="${requestScope.user}"/>
                 <div class="container py-5 h-100">
@@ -69,7 +69,7 @@
                                         </c:if>
                                         <c:if test="${requestScope.fix != null}">
                                             <img src="${sessionScope.user.image}" alt="Avatar" class="img-fluid my-5" style="width: 200px;border-radius: 4%;"/>
-                                            <input  type="url" name="image" value="${sessionScope.user.image}" style="background: #fabd73;">img url<hr>
+                                            <input  type="file" name="image">img url<hr>
                                         </c:if>
                                         <c:if test="${requestScope.fix == null}">
                                             <h5>User ${po.username}</h5>

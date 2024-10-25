@@ -222,16 +222,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:set var="num" value="${0}"/>
-                                <c:forEach items="${requestScope.userlist}" var="u">
+                                
+                                <c:forEach items="${requestScope.userlist}" var="u" varStatus="i">
                                     <tr>
-                                        <td>${num+1}</td>
+                                        <td>${i.index+1}</td>
                                         <td><a href="#"><img src="${u.image}" class="avatar" alt="Avatar" width="60px" heigh="60px"> ${u.name}</a></td>
                                         <td>${u.phone}</td>                        
                                         <td>${u.email}</td>
                                         <td><span class="status text-success">&bull;</span> ${u.address}</td>
                                         <td>
-                                            <a href="updateAccount?id=${u.id}" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+                                           
                                             <a href="#" onclick="doDelete('${u.id}')" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                                         </td>
                                     </tr>  

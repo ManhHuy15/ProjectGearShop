@@ -10,22 +10,27 @@ import dal.ProductTypeDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.List;
 import model.Product;
 import model.ProductCategory;
 import model.ProductType;
 
-/**
- *
- * @author thinh
- */
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024, // 1 MB
+        maxFileSize = 1024 * 1024 * 10,      // 10 MB
+        maxRequestSize = 1024 * 1024 * 100   // 100 MB
+)
 @WebServlet(name = "update", urlPatterns = {"/update"})
 public class update extends HttpServlet {
-
+private static final String UPLOAD_DIR = "img_product";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -103,7 +108,26 @@ public class update extends HttpServlet {
         
         String page = request.getParameter("page");
         String name = request.getParameter("name");
-        String image = request.getParameter("image");
+        Part imagePart = request.getPart("img");
+        String img = null;
+        if (imagePart != null && imagePart.getSize() > 0) {
+            String fileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
+            String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIR;
+            System.out.println("upload:"+uploadPath);
+            File uploadDirFile = new File(uploadPath);
+            if (!uploadDirFile.exists()) {
+                uploadDirFile.mkdirs();
+            }
+
+            String filePath = Paths.get(uploadPath, fileName).toString();
+            try {
+                imagePart.write(filePath);
+                img = fileName;
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new ServletException("File upload failed!", e);
+            }
+        }
         String product_id = request.getParameter("id");
         String describe = request.getParameter("describe");
         String price = request.getParameter("price");
@@ -120,7 +144,7 @@ public class update extends HttpServlet {
             pci = (product_category_id == null) ? 0 : Integer.parseInt(product_category_id);
             pti = (product_type_id == null) ? 0 : Integer.parseInt(product_type_id);
             prices = (price == null) ? 0 : Double.parseDouble(price);
-            Product p = new Product(id, describe, image, name, prices, quantities, pcd.getCategoryById(pci), ptd.getProductTypeById(pti));
+            Product p = new Product(id, describe, img, name, prices, quantities, pcd.getCategoryById(pci), ptd.getProductTypeById(pti));
         
             pd.updateProduct(p);
          

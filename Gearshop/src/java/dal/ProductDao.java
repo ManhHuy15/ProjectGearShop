@@ -523,27 +523,26 @@ public class ProductDao extends DBContext {
     // update sản phẩm
     public void updateProduct(Product p) {
         String sql = "UPDATE [dbo].[Product]\n"
-                + "  SET  [id] = ?"
-                + ",[description] = ?\n"
+                + "  SET \n"
+                + "[description] = ?\n"
                 + "      ,[image] = ?\n"
                 + "      ,[name] = ?\n"
                 + "      ,[price] = ?\n"
                 + "      ,[quantity] = ?\n"
                 + "      ,[product_category_id] = ?\n"
                 + "      ,[product_id_type] = ?\n"
-                + " WHERE id=?";
+                + " WHERE [id]=?";
 
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, p.getId());
-            st.setString(2, p.getDescription());
-            st.setString(3, p.getImage());
-            st.setString(4, p.getName());
-            st.setDouble(5, p.getPrice());
-            st.setInt(6, p.getQuantity());
-            st.setInt(7, p.getProductCategoty().getId());
-            st.setInt(8, p.getProductType().getId());
-            st.setInt(9, p.getId());
+            st.setString(1, p.getDescription());
+            st.setString(2, p.getImage());
+            st.setString(3, p.getName());
+            st.setDouble(4, p.getPrice());
+            st.setInt(5, p.getQuantity());
+            st.setInt(6, p.getProductCategoty().getId());
+            st.setInt(7, p.getProductType().getId());
+            st.setInt(8, p.getId());
             st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);

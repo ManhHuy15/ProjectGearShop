@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -60,7 +61,7 @@
         <div class="container">
             <section class="panel panel-default">
                 <div class="panel-body">
-                    <form action="update" method="post" class="form-horizontal">
+                    <form action="update" method="post" class="form-horizontal"  enctype="multipart/form-data">
                         <a style="" href="managerProduct?page=${requestScope.page}"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/BackButton.svg/2048px-BackButton.svg.png" width="50px" alt="alt"/></a>
                         <div class="img-container">
                             <c:if test="${requestScope.success != null}">
@@ -104,12 +105,10 @@
                             </div>
                         </div> <!-- form-group // -->
                         <div class="form-group">
-                            <label for="name" class="col-sm-3 control-label">Đường dẫn ảnh</label>
+                            <label for="name" class="col-sm-3 control-label">Ảnh</label>
                             <div class="col-sm-9">
-                                <input type="text" required="" class="form-control" name="image" value="${requestScope.products.image}" id="name"
-                                       placeholder="Điền đường dẫn ảnh sản phẩm">
                                 <label class="control-label small" for="file_img">tải file ảnh (jpg/png):</label> <input type="file"
-                                                                                                                         name="img">
+                                                                                                                         name="img" value="/img_product/${requestScope.products.image}">
                             </div>
                         </div> <!-- form-group // -->
                         <div class="form-group">

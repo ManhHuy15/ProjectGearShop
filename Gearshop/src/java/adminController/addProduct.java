@@ -10,22 +10,27 @@ import dal.ProductTypeDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.nio.file.Paths;
 import java.util.List;
 import model.Product;
 import model.ProductCategory;
 import model.ProductType;
 
-/**
- *
- * @author thinh
- */
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024, // 1 MB
+        maxFileSize = 1024 * 1024 * 10,      // 10 MB
+        maxRequestSize = 1024 * 1024 * 100   // 100 MB
+)
 @WebServlet(name = "addProduct", urlPatterns = {"/addProduct"})
 public class addProduct extends HttpServlet {
-
+private static final String UPLOAD_DIR = "img_product";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -72,8 +77,26 @@ public class addProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
-        String image = request.getParameter("image");
+        Part imagePart = request.getPart("image");
+        String img = null;
+        if (imagePart != null && imagePart.getSize() > 0) {
+            String fileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
+            String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIR;
+            System.out.println("upload:"+uploadPath);
+            File uploadDirFile = new File(uploadPath);
+            if (!uploadDirFile.exists()) {
+                uploadDirFile.mkdirs();
+            }
 
+            String filePath = Paths.get(uploadPath, fileName).toString();
+            try {
+                imagePart.write(filePath);
+                img = fileName;
+            } catch (IOException e) {
+                e.printStackTrace();
+                throw new ServletException("File upload failed!", e);
+            }
+        }
         String describe = request.getParameter("describe");
         String price = request.getParameter("price");
         String quantity = request.getParameter("quantity");
@@ -116,7 +139,7 @@ public class addProduct extends HttpServlet {
                 price_product = Double.parseDouble(price);
             }
 
-            Product p = new Product(0, describe, image, name, price_product, quantities, pc, pt);
+            Product p = new Product(0, describe, img, name, price_product, quantities, pc, pt);
             if (pd.searchProductByName(p.getName()) == null) {
                 pd.InputProduct(p);
                 request.setAttribute("success", "Sản phẩm của bạn đã được thêm thành công!");
