@@ -22,7 +22,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "showCart", urlPatterns = {"/showCart"})
 public class showCart extends HttpServlet {

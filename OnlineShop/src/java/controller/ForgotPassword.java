@@ -16,7 +16,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "ForgotPassword", urlPatterns = {"/forgot"})
 public class ForgotPassword extends HttpServlet {

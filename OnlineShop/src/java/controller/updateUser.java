@@ -21,8 +21,8 @@ import model.User;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024, // 1 MB
-        maxFileSize = 1024 * 1024 * 10,      // 10 MB
-        maxRequestSize = 1024 * 1024 * 100   // 100 MB
+        maxFileSize = 1024 * 1024 * 10, // 10 MB
+        maxRequestSize = 1024 * 1024 * 100 // 100 MB
 )
 @WebServlet(name = "updateUser", urlPatterns = {"/updateUser"})
 public class updateUser extends HttpServlet {
@@ -95,11 +95,14 @@ public class updateUser extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        UserDao userDao = new UserDao();
+
         String id_raw = request.getParameter("id");
         String user_name = request.getParameter("username");
         String password = request.getParameter("password");
         Part imagePart = request.getPart("image");
         String img = null;
+
         if (imagePart != null && imagePart.getSize() > 0) {
             String fileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
             String uploadPath = getServletContext().getRealPath("") + File.separator + UPLOAD_DIR;
@@ -111,25 +114,26 @@ public class updateUser extends HttpServlet {
 
             String filePath = Paths.get(uploadPath, fileName).toString();
             try {
-                 System.out.println("1234");
+                System.out.println("1234");
                 imagePart.write(filePath);
                 img = UPLOAD_DIR + "/" + fileName;
             } catch (IOException e) {
                 e.printStackTrace();
                 throw new ServletException("File upload failed!", e);
             }
+        } else {
+            img = userDao.getAvatarUserById(Integer.parseInt(id_raw));
         }
-                        String name_raw = request.getParameter("name");
-                String email_raw = request.getParameter("email");
-                String phone_raw = request.getParameter("phone");
-                String address_raw = request.getParameter("address");
+        String name_raw = request.getParameter("name");
+        String email_raw = request.getParameter("email");
+        String phone_raw = request.getParameter("phone");
+        String address_raw = request.getParameter("address");
 
-                UserDao userDao = new UserDao();
-                User user = new User(Integer.parseInt(id_raw), name_raw, email_raw, phone_raw, user_name, password, 0, img, address_raw);
-                session.removeAttribute("user");
-                session.setAttribute("user", user);
-                request.setAttribute("user", user);
-                userDao.updateUser(user);
+        User user = new User(Integer.parseInt(id_raw), name_raw, email_raw, phone_raw, user_name, password, 0, img, address_raw);
+        session.removeAttribute("user");
+        session.setAttribute("user", user);
+        request.setAttribute("user", user);
+        userDao.updateUser(user);
 
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }

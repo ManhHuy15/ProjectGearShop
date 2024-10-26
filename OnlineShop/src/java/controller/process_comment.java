@@ -16,7 +16,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class process_comment extends HttpServlet {
 

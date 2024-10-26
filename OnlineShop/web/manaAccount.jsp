@@ -1,9 +1,3 @@
-<%-- 
-    Document   : manaAccount
-    Created on : Mar 13, 2024, 2:45:20 PM
-    Author     : thinh
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

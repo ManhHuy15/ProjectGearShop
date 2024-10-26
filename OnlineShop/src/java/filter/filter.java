@@ -20,7 +20,7 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class filter implements Filter {
 

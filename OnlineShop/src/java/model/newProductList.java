@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class newProductList {
     private List<Product> listProductNew;

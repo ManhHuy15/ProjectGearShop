@@ -23,7 +23,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "process", urlPatterns = {"/process"})
 public class process extends HttpServlet {

@@ -144,6 +144,7 @@ private static final String UPLOAD_DIR = "img_product";
             pci = (product_category_id == null) ? 0 : Integer.parseInt(product_category_id);
             pti = (product_type_id == null) ? 0 : Integer.parseInt(product_type_id);
             prices = (price == null) ? 0 : Double.parseDouble(price);
+            if( img == null || img == ""  ) img = pd.getImageProductById(id);
             Product p = new Product(id, describe, img, name, prices, quantities, pcd.getCategoryById(pci), ptd.getProductTypeById(pti));
         
             pd.updateProduct(p);

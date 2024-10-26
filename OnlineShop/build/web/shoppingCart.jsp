@@ -1,9 +1,3 @@
-<%-- 
-    Document   : shoppingCart
-    Created on : Mar 3, 2024, 12:18:50 AM
-    Author     : thinh
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

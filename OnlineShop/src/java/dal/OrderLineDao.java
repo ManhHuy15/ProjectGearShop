@@ -15,7 +15,7 @@ import model.Product;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class OrderLineDao extends DBContext {
 

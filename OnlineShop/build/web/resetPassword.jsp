@@ -1,9 +1,3 @@
-<%-- 
-    Document   : resetPassword
-    Created on : Mar 17, 2024, 5:43:32 PM
-    Author     : thinh
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

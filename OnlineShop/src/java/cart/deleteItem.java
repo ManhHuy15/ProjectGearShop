@@ -19,7 +19,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "deleteItem", urlPatterns = {"/deleteItem"})
 public class deleteItem extends HttpServlet {

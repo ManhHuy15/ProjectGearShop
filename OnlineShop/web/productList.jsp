@@ -1,7 +1,7 @@
 <%--
     Document   : productList
     Created on : Feb 26, 2024, 4:02:14 PM
-    Author     : thinh
+    Author     : truong
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

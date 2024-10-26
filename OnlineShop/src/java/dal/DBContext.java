@@ -6,7 +6,7 @@ package dal;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 import java.sql.Connection;
 import java.sql.DriverManager;

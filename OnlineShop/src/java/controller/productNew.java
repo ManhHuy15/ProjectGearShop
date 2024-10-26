@@ -21,7 +21,7 @@ import model.newProductList;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "productNew", urlPatterns = {"/productNew"})
 public class productNew extends HttpServlet {

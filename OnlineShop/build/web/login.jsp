@@ -1,10 +1,4 @@
-<%--
-    Document   : login
-    Created on : Feb 20, 2024, 4:46:14 PM
-    Author     : thinh
---%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->

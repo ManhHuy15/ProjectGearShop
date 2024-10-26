@@ -14,7 +14,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class CommentDao extends DBContext {
     UserDao udao = new UserDao();

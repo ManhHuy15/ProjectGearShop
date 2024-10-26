@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class DateOrder {
     private int month;

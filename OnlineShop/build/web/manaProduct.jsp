@@ -1,9 +1,3 @@
-<%--
-    Document   : productList
-    Created on : Feb 26, 2024, 4:02:14 PM
-    Author     : thinh
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

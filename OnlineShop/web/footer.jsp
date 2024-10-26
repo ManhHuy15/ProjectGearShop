@@ -1,9 +1,3 @@
-<%-- 
-    Document   : footer
-    Created on : Feb 26, 2024, 3:35:22 PM
-    Author     : thinh
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

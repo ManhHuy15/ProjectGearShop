@@ -15,7 +15,7 @@ import model.ProductType;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class UserDao extends DBContext {
 
@@ -235,6 +235,25 @@ public class UserDao extends DBContext {
             e.printStackTrace();
         }
         return list;
+    }
+    
+     public String getAvatarUserById(int id) {
+        String sql = "SELECT [id]\n"
+                + "      ,[image]\n"
+                + "  FROM [dbo].[User] WHERE [id]= ?";
+
+        try (PreparedStatement st = connection.prepareStatement(sql)) {
+            st.setInt(1, id);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    return  rs.getString("image");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return "";
+        }
+        return "";
     }
 
     public void register(User user) {

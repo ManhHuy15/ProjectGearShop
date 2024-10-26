@@ -19,7 +19,7 @@ import model.ProductType;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "addCategory", urlPatterns = {"/addCategory"})
 public class addCategory extends HttpServlet {

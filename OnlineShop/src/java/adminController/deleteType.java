@@ -17,7 +17,7 @@ import model.ProductType;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name="deleteType", urlPatterns={"/deleteType"})
 public class deleteType extends HttpServlet {

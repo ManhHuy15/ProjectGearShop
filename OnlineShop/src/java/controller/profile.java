@@ -17,7 +17,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "profile", urlPatterns = {"/profile"})
 public class profile extends HttpServlet {

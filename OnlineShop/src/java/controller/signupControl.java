@@ -19,7 +19,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name = "signupControl", urlPatterns = {"/signup"})
 public class signupControl extends HttpServlet {

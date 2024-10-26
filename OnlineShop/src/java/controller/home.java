@@ -23,7 +23,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class home extends HttpServlet {
 

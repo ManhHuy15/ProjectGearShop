@@ -13,7 +13,7 @@ import model.ProductType;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class ProductTypeDao extends DBContext {
     // product type

@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 @WebServlet(name="deleteOrdering", urlPatterns={"/deleteOrdering"})
 public class deleteOrdering extends HttpServlet {

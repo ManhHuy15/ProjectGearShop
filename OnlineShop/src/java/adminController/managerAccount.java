@@ -18,7 +18,7 @@ import model.User;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class managerAccount extends HttpServlet {
 

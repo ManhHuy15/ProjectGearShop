@@ -16,7 +16,7 @@ import model.ProductType;
 
 /**
  *
- * @author thinh
+ * @author truong
  */
 public class ProductDao extends DBContext {
 
@@ -431,6 +431,8 @@ public class ProductDao extends DBContext {
         return null;
     }
 
+    
+    
     // search product by id
     public Product searchProductById(int id) {
         String sql = "SELECT [id], [description], [image], [name], [price], [quantity], [product_category_id], [product_id_type] FROM [dbo].[Product] WHERE 1 = 1";
@@ -548,12 +550,29 @@ public class ProductDao extends DBContext {
             System.out.println(e);
         }
     }
+    
+      public String getImageProductById(int id) {
+        String sql = "SELECT"
+                + " [image]\n"
+                + "  FROM [dbo].[Product]\n"
+                + " WHERE [id]=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+              return rs.getString("image");
+            }
+        } catch (SQLException e) {
+        }
+        return "";
+    }
 
     ////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         ProductDao d = new ProductDao();
 
-        Product p = new Product(200, "dep", "3.4_1.png", "thinh", 10000, 100,null ,null );
+        Product p = new Product(200, "dep", "3.4_1.png", "truong", 10000, 100,null ,null );
         d.InputProduct(p);
     }
 }

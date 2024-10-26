@@ -1,7 +1,5 @@
 <%-- 
-    Document   : addNewCategory
-    Created on : Mar 18, 2024, 12:41:37 PM
-    Author     : thinh
+    Author     : truong
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

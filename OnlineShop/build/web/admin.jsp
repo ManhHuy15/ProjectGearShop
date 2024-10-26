@@ -1,9 +1,3 @@
-<%-- 
-Document   : home
-Created on : Feb 20, 2024, 9:17:48 PM
-Author     : thinh
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
